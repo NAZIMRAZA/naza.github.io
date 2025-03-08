@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Portfolio Management</title>
+    <link rel="stylesheet" href="style.css"> <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        .admin-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form label {
+            font-weight: bold;
+        }
+        form input,
+        form textarea {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        form textarea {
+            resize: vertical;
+        }
+        form button[type="submit"],
+        .btn {
+            padding: 10px 15px;
+            background-color: #0044ff; /* Example button color */
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn.modify-btn {
+            background-color: #ffc107; /* Example modify button color */
+            color: black;
+        }
+        .btn.delete-btn {
+            background-color: #dc3545; /* Example delete button color */
+        }
+        .portfolio-frames-admin {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .portfolio-frame {
+            border: 1px solid #eee;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .frame-image {
+            width: 150px;
+            height: auto;
+        }
+        .frame-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .frame-content {
+            flex-grow: 1;
+        }
+        .frame-links button {
+            margin-right: 5px;
+        }
+        .no-frames {
+            text-align: center;
+            font-style: italic;
+            color: #777;
+        }
+        .frame-image {
+    width: 150px; /* Set your desired fixed width */
+    height: 200px; /* Set your desired fixed height */
+    overflow: hidden; /* Ensure image doesn't overflow container */
+}
+
+.frame-image img {
+    width: 100%; /* Make image take up 100% of the container width */
+    height: 100%; /* Make image take up 100% of the container height */
+    object-fit: contain; /*  "cover" is important for fixed size! */
+    display: block; /* Ensure image behaves as a block element */
+}
+.portfolio-frame .frame-image img {
+            border: 3px solid red !important; /* Force a visible border */
+            object-fit: contain !important; /* Force object-fit: contain */
+            width: 100% !important; /* Force width */
+            height: 100% !important; /* Force height */
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Portfolio Management</h1>
+
+        <form id="add-portfolio-form">
+            <h2>Add/Modify Portfolio Item</h2>
+            <label for="frame-image">Book Cover Image:</label>
+            <input type="file" id="frame-image" required placeholder="Enter image URL">
+            <small>Select image file from your computer (JPG, PNG, etc.)</small>
+
+            <label for="frame-title">Book Name:</label>
+            <input type="text" id="frame-title" required placeholder="Enter book name">
+
+            <label for="frame-description">Book Caption:</label>
+            <textarea id="frame-description" rows="4" placeholder="Enter book caption"></textarea>
+
+            <label for="frame-url">Project URL (e.g., Link to Book):</label>
+            <input type="url" id="frame-url" placeholder="Enter project URL (optional)">
+
+            <button type="submit">Add Frame</button>
+        </form>
+
+        <div class="portfolio-frames-admin" id="portfolio-frames">
+            <h2>Current Portfolio Items</h2>
+            </div>
+    </div>
+
+    <script src="script.js"></script> <script>
+        // You don't need to repeat the DOMContentLoaded listener here if it's already in your script.js
+        //  document.addEventListener('DOMContentLoaded', function() {
+        //      setupPortfolioForm(); // Only runs on admin.html - already handled in script.js
+        //      loadPortfolioFrames(); // Runs on both pages - already handled in script.js
+        //  });
+    </script>
+</body>
+</html>
